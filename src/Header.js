@@ -16,7 +16,7 @@ function Header() {
       {/* <h1>This is a Header</h1> */}
       <div className="header__left">
         <img
-          src="https://sm.pcmag.com/t/pcmag_au/review/l/linkedin/linkedin_r9xm.1200.jpg"
+          src="https://myclouddoor.com/wp-content/uploads/2019/11/Linkedin-logo.png"
           alt=""
         />
         <div className="header__search">
