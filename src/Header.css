@@ -3,7 +3,7 @@
   top: 0;
   display: flex;
   justify-content: space-evenly;
-  border-bottom: 0.1px solid lightgray;
+  border-bottom: 0.1px solid var(--color-lightgray);
   padding: 10px 0px;
   widows: 100%;
   z-index: 999;
@@ -23,7 +23,7 @@
     align-items: center;
     border-radius: 5px;
     height: 22px;
-    color: gray;
+    color: var(--color-gray);
     background-color: #eef3f8;
 }
 
