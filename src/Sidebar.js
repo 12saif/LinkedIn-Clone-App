@@ -1,6 +1,6 @@
 import React from "react";
 import "./Sidebar.css";
-// import SaifSidebarAvatar from './image/saif photo (1).jpg'
+import SaifSidebarAvatar from './image/saif photo (1).jpg'
 import { Avatar } from "@mui/material";
 
 function Sidebar() {
@@ -18,7 +18,7 @@ function Sidebar() {
           src="https://images.unsplash.com/photo-1676642626098-7d71f664cfb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
           alt=""
         />
-        <Avatar className="sidebar__avatar" />
+        <Avatar src={SaifSidebarAvatar} className="sidebar__avatar" />
         <h2>MD SAIF</h2>
         <h4>mohdsaif9170613062@gmail.com</h4>
       </div>
