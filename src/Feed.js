@@ -13,22 +13,24 @@ import ArticleIcon from "@mui/icons-material/Article";
 
 // ! ======= IMPORT FIREBASE ========== //
 
-import { db } from "./firebase";
-import firebase from "firebase/compat/app";
+// import { db } from "./firebase";
+// import firebase from "firebase/compat/app";
 
 function Feed() {
   const [input, setInput] = useState(" ");
-  const [posts, setPosts] = useState([]);
+  // const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    db.collection("posts").onSnapshot((snapshot) =>
-      setPosts(
-        snapshot.doc.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        })),
-      ),
-    );
+    // db.collection("posts")
+    //   .orderBy("timeatamp", "desc")
+    //   .onSnapshot((snapshot) =>
+    //     setPosts(
+    //       snapshot.docs.map((doc) => ({
+    //         id: doc.id,
+    //         data: doc.data(),
+    //       })),
+    //     ),
+    //   );
   }, []);
 
   // ! ============== ONCLICK SEND POST ================ //
@@ -36,13 +38,15 @@ function Feed() {
   const sendPost = (e) => {
     e.preventDefault();
 
-    db.collection("posts").add({
-      name: "Md Saif",
-      description: "this is a test",
-      message: input,
-      photoUrl: "",
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    });
+    // db.collection("posts").add({
+    //   name: "Md Saif",
+    //   description: "this is a test",
+    //   message: input,
+    //   photoUrl: "",
+    //   timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    // });
+
+    setInput("");
   };
 
   return (
@@ -74,7 +78,9 @@ function Feed() {
       </div>
 
       {/* POST */}
-      {posts.map(({ id, data: { name, description, message, photoUrl } }) => (
+
+      {/* {posts.map(({ id, data: { name, description, message,
+        photoUrl } }) => (
         <Post
           key={id}
           name={name}
@@ -82,7 +88,28 @@ function Feed() {
           message={message}
           photoUrl={photoUrl}
         />
-      ))}
+      ))} */}
+
+      <Post
+        name="md saif"
+        description="this is a test"
+        message="WOW this is works"
+      />
+      <Post
+        name="md saif"
+        description="this is a test"
+        message="WOW this is works"
+      />
+      <Post
+        name="md saif"
+        description="this is a test"
+        message="WOW this is works"
+      />
+      <Post
+        name="md saif"
+        description="this is a test"
+        message="WOW this is works"
+      />
     </div>
   );
 }
