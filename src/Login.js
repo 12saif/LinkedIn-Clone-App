@@ -1,12 +1,15 @@
-import React from 'react'
-import './Login.css';
+import React from "react";
+import "./Login.css";
 
 function Login() {
   return (
     <div className="login">
-      <h1>Your are not logged in</h1>
+      <img
+        src="https://logolook.net/wp-content/uploads/2021/06/Linkedin-Logo-2003.png"
+        alt=""
+      />
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;
