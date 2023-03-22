@@ -1,13 +1,16 @@
 import React, { useState } from "react";
-import "./Login.css";
-import Linkedinlogo from "./image/Linkedin-Logo-2003.png";
+import { useDispatch } from "react-redux";
+import { login } from "./features/userSlice";
 import { auth } from "./firebase";
+import Linkedinlogo from "./image/Linkedin-Logo-2003.png";
+import "./Login.css";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [profilePic, setProfilePic] = useState("");
+  const dispatch = useDispatch();
 
   const loginToApp = (e) => {
     e.preventDefault();
@@ -18,10 +21,26 @@ function Login() {
       return alert("Please enter a full name!");
     }
 
-    auth.createUserWithEmailAndPassword(email, password)
+    auth
+      .createUserWithEmailAndPassword(email, password)
       .then((userAuth) => {
-      
-    })
+        userAuth.user
+          .updateProfile({
+            displayName: name,
+            photoURL: profilePic,
+          })
+          .then(() => {
+            dispatch(
+              login({
+                email: userAuth.user.email,
+                uid: userAuth.user.uid,
+                displayName: name,
+                photoUrl: profilePic,
+              }),
+            );
+          });
+      })
+      .catch((error) => alert(error));
   };
 
   return (
