@@ -6,10 +6,11 @@ import Linkedinlogo from "./image/Linkedin-Logo-2003.png";
 import "./Login.css";
 
 function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [profilePic, setProfilePic] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const dispatch = useDispatch();
 
   const loginToApp = (e) => {
@@ -51,7 +52,7 @@ function Login() {
         <input
           value={name}
           onClick={(e) => setName(e.target.value)}
-          placeholder="Full name (required if registering)"
+          placeholder="Full name required if registering"
           type="text"
         />
 
@@ -90,4 +91,4 @@ function Login() {
   );
 }
 
-export default Login;
+  export default Login;
